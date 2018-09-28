@@ -1,0 +1,12 @@
+Vagrant.configure(2) do |config|
+
+  config.vm.box = "ubuntu/bionic64" #Choose a box from vagrant. In this case it is the newest 18.04 Ubuntu box.
+
+  config.vm.provider "virtualbox" do |vb| #Please change the provider to your provider
+    vb.memory = "1524" #Change the box memory as u like.
+  end
+  
+  config.vm.synced_folder 'C:\User\', "/home/vagrant/web", #Replace C:\User\ with the folder you want to share with the linux system.
+	id: "core"
+  config.vm.network :private_network, ip: "192.168.10.11"
+end
